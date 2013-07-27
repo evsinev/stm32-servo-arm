@@ -22,7 +22,7 @@ INCLUDE_DIRECTORIES(
 )
 
 SET(PROJECT_SOURCES
-     src/xprintf.c src/uart_debug.c src/led_debug.c src/main.c
+     src/xprintf.c src/rcc.c src/uart_debug.c src/led_debug.c src/servo.c src/delay.c src/motor.c src/main.c
 )
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME}.elf ${PROJECT_SOURCES} ${CMSIS_STARTUP_SOURCE})

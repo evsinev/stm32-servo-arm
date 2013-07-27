@@ -15,6 +15,7 @@ extern "C" {
 
 void rcc_config();
 
+void rcc_debug();
 
 #ifdef	__cplusplus
 }

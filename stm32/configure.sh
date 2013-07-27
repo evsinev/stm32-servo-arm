@@ -12,7 +12,7 @@ param_add() {
 }
 
 param_add CMAKE_TOOLCHAIN_FILE      ../cmake-support/gcc_stm32.cmake
-param_add CMAKE_BUILD_TYPE          Release
+param_add CMAKE_BUILD_TYPE          Debug
 #param_add STM32_StdPeriphLib_DIR    $STM32_LIB_DIR
 param_add TOOLCHAIN_PREFIX          $TOOLCHAIN_DIR
 # http://easyelectronics.ru/arm-uchebnyj-kurs-iar-ewarm-sozdanie-proekta-chast-2-cmsis-i-standard-peripherals-library.html
