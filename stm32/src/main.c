@@ -5,6 +5,7 @@
 #include "led_debug.h"
 #include "delay.h"
 #include "motor.h"
+#include "reed.h"
 
 
 int main() {
@@ -12,6 +13,7 @@ int main() {
 
     led_debug_config();
     motor_config();
+    reed_config();
     
     led_blue_off();
     led_green_off();
@@ -22,21 +24,25 @@ int main() {
         // forward
         motor_forward();
         led_blue_on();
-        bigDelay();
+        reed_delay_left();
         
         // stop
         motor_stop();
         led_blue_off();
         bigDelay();
+        bigDelay();
+        bigDelay();
 
         // backward
         motor_back();
         led_green_on();
-        bigDelay();
+        reed_delay_right();
         
         // stop
         motor_stop();
         led_green_off();
+        bigDelay();
+        bigDelay();
         bigDelay();
     }  
 

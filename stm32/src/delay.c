@@ -9,7 +9,7 @@ void delay() {
  }
 
 void bigDelay() {
-  for (int i=1; i != 35; i++) {
+  for (int i=1; i != 40; i++) {
     delay();
   }
 }
