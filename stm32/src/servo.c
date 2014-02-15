@@ -7,6 +7,7 @@ void servo_set_pos(uint8_t pos) {
   TIM2->CCR2 = SERVO_0 + tmp * pos;
 }
 
+
 void servo_config() {
   GPIO_InitTypeDef PORT;
   // Настроим ногу (PA1) к которой подключен сервопривод

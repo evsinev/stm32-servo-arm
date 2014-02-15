@@ -1,17 +1,32 @@
 #include "delay.h"
 #include "../stm32f10x_conf.h"
 
-// Функция задержки
-void delay() {
-  volatile uint32_t i;
-  for (i=1; i != 0xFFFF; i++)
-    ;
- }
+#include "led_debug.h"
 
-void bigDelay() {
-  for (int i=1; i != 40; i++) {
-    delay();
-  }
+static volatile u32 systick_10ms_ticks = 0xfffffff0;
+
+/*
+ * Функция задержки
+ */
+void delay_ms(u32 msec) {
+    u32 tenms = msec / 10;
+    u32 dest_time = systick_10ms_ticks + tenms;
+
+if(dest_time < tenms) {
+    systick_10ms_ticks = 0;
+    dest_time = tenms;
+}
+
+    while(systick_10ms_ticks < dest_time) {
+        // __WFI();
+    }
+}
+
+void delay_config() {
+   SysTick_Config( SystemCoreClock / 80);
 }
 
 
+void SysTick_Handler(void) {
+    systick_10ms_ticks++;
+}
